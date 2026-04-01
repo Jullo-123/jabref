@@ -3,8 +3,8 @@ package org.jabref.gui.preview;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.List;
-import java.util.Path;
-import java.util.Map
+import java.nio.file.Path;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -216,12 +216,6 @@ public class PreviewViewer extends ScrollPane implements InvalidationListener {
         Number.serialExportNumber = 1;
         BibEntry currentEntry = entry;
 
-        /*BackgroundTask.wrap(() -> layout.generatePreview(currentEntry, databaseContext))
-                      .onSuccess(this::setPreviewText)
-                      .onFailure(e -> setPreviewText(formatError(currentEntry, e)))
-                      .executeWith(taskExecutor);*/
-
-        //replaced above with this.
         //for generating html and replace the __PDFANNOTATIONS__ placeholder
         BackgroundTask.wrap(() -> {
                     String previewHtml = layout.generatePreview(currentEntry, databaseContext);
@@ -417,7 +411,7 @@ public class PreviewViewer extends ScrollPane implements InvalidationListener {
     }
 
     ///to set annotation cache sued to resolve pdf annotations in the preview
-    public void setAnnotationCache(@Nullable FileAnnotationsCache cache) {
+    public void setAnnotationCache(@Nullable FileAnnotationCache cache) {
         this.annotationCache = cache;
     }
 }
