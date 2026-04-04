@@ -93,6 +93,7 @@ public class PreviewViewer extends ScrollPane implements InvalidationListener {
 
     private final BookCoverFetcher bookCoverFetcher;
 
+    private @Nullable FileAnnotationCache annotationCache;
     private @Nullable BibDatabaseContext databaseContext;
     private @Nullable BibEntry entry;
     private PreviewLayout layout;
